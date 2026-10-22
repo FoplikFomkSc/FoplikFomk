@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoplikFomk — Мой мир</title>
+    <title>FoplikFomk — Проекты</title>
     <style>
-        /* Базовые настройки и цвета */
+        /* Цветовая палитра в стиле GitHub Dark */
         :root {
-            --bg-color: #0f0f13;
-            --text-color: #e2e2e2;
-            --accent-color: #ff4757;
-            --card-bg: #1e1e24;
-            --link-hover: #ff6b81;
+            --bg-color: #0d1117;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --card-bg: #161b22;
+            --link-color: #58a6ff;
+            --link-hover: #79c0ff;
+            
+            /* Цвета тегов */
+            --tag-release: #238636;
+            --tag-beta: #9e6a03;
+            --tag-alpha: #8957e5;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
@@ -29,118 +36,149 @@
             padding: 40px 20px;
         }
 
-        /* Заголовки */
-        h1, h2, h3 { margin-bottom: 10px; }
-        h1 { font-size: 2.5rem; color: #fff; text-align: center; }
-        h2 { font-size: 1.8rem; border-bottom: 2px solid var(--accent-color); padding-bottom: 5px; margin-top: 40px;}
-        
-        /* Блок приветствия */
+        /* Шапка */
         .hero {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #1e1e24 0%, #0f0f13 100%);
-            border-radius: 15px;
             margin-bottom: 40px;
-            border: 1px solid #2a2a35;
         }
-        
-        .hero p { font-size: 1.1rem; color: #a0a0a0; }
+        h1 { font-size: 2.2rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
+        .hero p { color: var(--text-muted); margin-bottom: 20px; }
 
-        /* Социальные сети */
+        /* Кнопки соцсетей */
         .social-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: #2a2a35;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .social-btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
-        }
-
-        /* Карточки игр и версий */
-        .game-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 20px;
-            border: 1px solid #2a2a35;
-        }
-
-        .version-group {
-            margin-bottom: 25px;
-        }
-        
-        .version-group h4 {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
+        .social-btn {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: #21262d;
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: 0.2s;
+        }
+        .social-btn:hover { background-color: #30363d; border-color: #8b949e; }
 
+        /* Заголовок раздела */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .section-title span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+
+        /* Блоки версий */
+        .release-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 24px;
+            padding: 16px;
+        }
+
+        /* Теги (Альфа, Бета, Релиз) */
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .tag-release { background-color: var(--tag-release); }
+        .tag-beta { background-color: var(--tag-beta); }
+        .tag-alpha { background-color: var(--tag-alpha); }
+
+        /* Внутренняя структура релиза */
+        .release-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Список версий (слева) */
         .version-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         .version-item {
-            background: #15151a;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 3px solid #555;
-            transition: 0.2s;
-        }
-
-        .version-item:hover {
-            border-left-color: var(--accent-color);
-            background: #1a1a20;
-        }
-
-        .version-title {
-            font-weight: bold;
-            color: #fff;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
         }
+        .version-item:last-child { border-bottom: none; }
+        
+        .version-name {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .version-name:hover { text-decoration: underline; color: var(--link-hover); }
         
         .version-date {
-            font-size: 0.85rem;
-            color: #777;
-        }
-
-        .version-desc {
-            margin-top: 5px;
-            font-size: 0.95rem;
-            color: #b0b0b0;
-        }
-
-        /* Подвал */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #2a2a35;
-            color: #777;
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Список изменений (справа) */
+        .changelog {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .changelog-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .changelog ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .changelog li { margin-bottom: 4px; }
+
+        /* Кнопка скачивания */
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 16px;
+            background-color: #238636;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+        }
+        .download-btn:hover { background-color: #2ea043; }
+
+        @media (min-width: 768px) {
+            .release-content { flex-direction: row; }
+            .release-left { flex: 1; border-right: 1px solid var(--border-color); padding-right: 20px; }
+            .release-right { flex: 1; padding-left: 20px; }
+            .changelog { margin-top: 0; padding-top: 0; border-top: none; }
         }
     </style>
 </head>
@@ -148,11 +186,9 @@
 
 <div class="container">
 
-    <!-- Блок приветствия и соцсети -->
     <div class="hero">
         <h1>FoplikFomk</h1>
-        <p>Добро пожаловать на мой официальный сайт! Здесь я делюсь своими проектами и контентом.</p>
-        
+        <p>Разработчик, геймер и просто хороший человек.</p>
         <div class="social-links">
             <a href="https://t.me/foplikfomk" target="_blank" class="social-btn">Telegram</a>
             <a href="https://www.youtube.com/@foplikfomk" target="_blank" class="social-btn">YouTube</a>
@@ -161,76 +197,110 @@
         </div>
     </div>
 
-    <!-- Раздел Игры -->
-    <h2>🎮 Мои проекты</h2>
-    
-    <div class="game-card">
-        <h3 style="color: #fff; margin-top: 0;">Ball Ricochet</h3>
-        <p style="color: #a0a0a0;">Один из моих игровых проектов. Здесь вы можете отследить историю разработки и скачать разные версии.</p>
-
-        <!-- Альфа версии -->
-        <div class="version-group">
-            <h4>🧪 Альфа-версии (Alpha)</h4>
-            <ul class="version-list">
-                <li class="version-item">
-                    <div class="version-title">
-                        <span>v0.1 Alpha</span>
-                        <span class="version-date">Ранний прототип</span>
-                    </div>
-                    <div class="version-desc">Самый первый билд. Добавлен базовый шарик, физика отскока от стен и первые тестовые платформы.</div>
-                </li>
-                <li class="version-item">
-                    <div class="version-title">
-                        <span>v0.2 Alpha</span>
-                        <span class="version-date">Добавление уровней</span>
-                    </div>
-                    <div class="version-desc">Добавлено 3 новых уровня. Исправлен баг, когда шарик проваливался сквозь текстуры при высокой скорости.</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Бета версии -->
-        <div class="version-group">
-            <h4>⚙️ Бета-версии (Beta)</h4>
-            <ul class="version-list">
-                <li class="version-item">
-                    <div class="version-title">
-                        <span>v0.5 Beta</span>
-                        <span class="version-date">Первый большой апдейт</span>
-                    </div>
-                    <div class="version-desc">Добавлена новая механика (например, ускорение). Полностью переработан интерфейс главного меню. Добавлена музыка.</div>
-                </li>
-                <li class="version-item">
-                    <div class="version-title">
-                        <span>v0.9 Beta</span>
-                        <span class="version-date">Почти релиз</span>
-                    </div>
-                    <div class="version-desc">Оптимизация игры под слабые устройства. Добавлены финальные уровни. Исправлено более 20 мелких багов.</div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Релизные версии -->
-        <div class="version-group">
-            <h4>🚀 Релизы (Release)</h4>
-            <ul class="version-list">
-                <li class="version-item" style="border-left-color: #2ed573;">
-                    <div class="version-title">
-                        <span>v1.0 Release</span>
-                        <span class="version-date">Официальный выход!</span>
-                    </div>
-                    <div class="version-desc">Полная версия игры Ball Ricochet. Все уровни, стабильный FPS, финальный саундтрек. Спасибо всем, кто тестировал альфу и бету!</div>
-                </li>
-            </ul>
-        </div>
-        
-        <p style="font-size: 0.9rem; color: #777; font-style: italic; margin-top: 20px;">
-            * Чтобы добавить ссылки на скачивание (например, на Google Drive или itch.io), вставьте тег &lt;a href="ссылка"&gt;Скачать&lt;/a&gt; внутрь нужного блока версии.
-        </p>
+    <div class="section-title">
+        <div>Releases</div>
+        <span>Мои проекты</span>
     </div>
 
-    <footer>
-        &copy; 2024 FoplikFomk. Сделано с любовью к играм.
+    <!-- ================= ПРОЕКТ: BALL RICOCHET ================= -->
+    <h2 style="font-size: 1.3rem; margin-bottom: 15px; color: #fff;">Ball Ricochet</h2>
+
+    <!-- РЕЛИЗ -->
+    <div class="release-card">
+        <span class="tag tag-release">Release</span>
+        <div class="release-content">
+            <div class="release-left">
+                <ul class="version-list">
+                    <!-- Здесь вы можете добавить релизные версии -->
+                    <li class="version-item">
+                        <span style="color: var(--text-muted); font-style: italic;">Пока нет релизов</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="release-right">
+                <div class="changelog">
+                    <div class="changelog-title">Обновления:</div>
+                    <ul>
+                        <li>Здесь будет список изменений для релиза.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЕТА -->
+    <div class="release-card">
+        <span class="tag tag-beta">Beta</span>
+        <div class="release-content">
+            <div class="release-left">
+                <ul class="version-list">
+                    <li class="version-item">
+                        <span style="color: var(--text-muted); font-style: italic;">Пока нет бета-версий</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="release-right">
+                <div class="changelog">
+                    <div class="changelog-title">Обновления:</div>
+                    <ul>
+                        <li>Здесь будет список изменений для беты.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- АЛЬФА -->
+    <div class="release-card">
+        <span class="tag tag-alpha">Alpha</span>
+        <div class="release-content">
+            <div class="release-left">
+                <ul class="version-list">
+                    
+                    <!-- ПРИМЕР ТОГО, КАК ВСТАВЛЯТЬ ВЕРСИЮ -->
+                    <li class="version-item">
+                        <a href="#" class="version-name" target="_blank">
+                            <!-- Иконка документа -->
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg>
+                            Flably Alpha v0.2.1
+                        </a>
+                        <span class="version-date">Oct 21, 2026</span>
+                    </li>
+                    <!-- КОНЕЦ ПРИМЕРА -->
+
+                    <li class="version-item">
+                        <a href="#" class="version-name" target="_blank">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg>
+                            Flably Alpha v0.2.0
+                        </a>
+                        <span class="version-date">Oct 16, 2026</span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="release-right">
+                <div class="changelog">
+                    <div class="changelog-title">Обновления (v0.2.1):</div>
+                    <ul>
+                        <li>Menu music volume fixed</li>
+                        <li>Editor grid added</li>
+                        <li>Expanded game board</li>
+                        <li>Camera follows player</li>
+                        <li>Editor scale added</li>
+                    </ul>
+                    <!-- Кнопка скачивания -->
+                    <a href="#" class="download-btn">Скачать последнюю альфу</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Если захотите добавить другие игры, просто скопируйте блок -->
+    <!-- <h2 style="font-size: 1.3rem; margin: 40px 0 15px; color: #fff;">Название другой игры</h2> -->
+    <!-- ... -->
+
+    <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem;">
+        &copy; 2024 FoplikFomk. Сделано на GitHub Pages.
     </footer>
 
 </div>
