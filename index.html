@@ -133,6 +133,8 @@
             gap: 8px;
         }
         .version-name:hover { text-decoration: underline; color: var(--link-hover); }
+        .version-name.no-file { color: var(--text-main); cursor: default; }
+        .version-name.no-file:hover { text-decoration: none; color: var(--text-main); }
         
         .version-date {
             color: var(--text-muted);
@@ -159,21 +161,6 @@
         }
         .changelog li { margin-bottom: 4px; }
 
-        /* Кнопка скачивания */
-        .download-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 16px;
-            background-color: #238636;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid rgba(240, 246, 252, 0.1);
-        }
-        .download-btn:hover { background-color: #2ea043; }
-
         @media (min-width: 768px) {
             .release-content { flex-direction: row; }
             .release-left { flex: 1; border-right: 1px solid var(--border-color); padding-right: 20px; }
@@ -199,11 +186,11 @@
 
     <div class="section-title">
         <div>Releases</div>
-        <span>Мои проекты</span>
+        <span>Мои проекты и дневник разработки</span>
     </div>
 
     <!-- ================= ПРОЕКТ: BALL RICOCHET ================= -->
-    <h2 style="font-size: 1.3rem; margin-bottom: 15px; color: #fff;">Ball Ricochet</h2>
+    <h2 style="font-size: 1.3rem; margin-bottom: 15px; color: #fff;">Ball Ricochet (BLR)</h2>
 
     <!-- РЕЛИЗ -->
     <div class="release-card">
@@ -211,7 +198,6 @@
         <div class="release-content">
             <div class="release-left">
                 <ul class="version-list">
-                    <!-- Здесь вы можете добавить релизные версии -->
                     <li class="version-item">
                         <span style="color: var(--text-muted); font-style: italic;">Пока нет релизов</span>
                     </li>
@@ -257,47 +243,29 @@
             <div class="release-left">
                 <ul class="version-list">
                     
-                    <!-- ПРИМЕР ТОГО, КАК ВСТАВЛЯТЬ ВЕРСИЮ -->
+                    <!-- ВАША НОВАЯ ВЕРСИЯ БЕЗ ФАЙЛА -->
                     <li class="version-item">
-                        <a href="#" class="version-name" target="_blank">
-                            <!-- Иконка документа -->
+                        <!-- Так как файла нет, мы не делаем ссылку, а просто пишем текст -->
+                        <span class="version-name no-file">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg>
-                            Flably Alpha v0.2.1
-                        </a>
-                        <span class="version-date">Oct 21, 2026</span>
-                    </li>
-                    <!-- КОНЕЦ ПРИМЕРА -->
-
-                    <li class="version-item">
-                        <a href="#" class="version-name" target="_blank">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg>
-                            Flably Alpha v0.2.0
-                        </a>
-                        <span class="version-date">Oct 16, 2026</span>
+                            BLR Alpha v0.0.1
+                        </span>
+                        <span class="version-date">Сегодня</span>
                     </li>
 
                 </ul>
             </div>
             <div class="release-right">
                 <div class="changelog">
-                    <div class="changelog-title">Обновления (v0.2.1):</div>
+                    <div class="changelog-title">Обновления (v0.0.1):</div>
                     <ul>
-                        <li>Menu music volume fixed</li>
-                        <li>Editor grid added</li>
-                        <li>Expanded game board</li>
-                        <li>Camera follows player</li>
-                        <li>Editor scale added</li>
+                        <li>There is a menu and a functional UI.</li>
+                        <li>There is a connection to an online server!</li>
                     </ul>
-                    <!-- Кнопка скачивания -->
-                    <a href="#" class="download-btn">Скачать последнюю альфу</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Если захотите добавить другие игры, просто скопируйте блок -->
-    <!-- <h2 style="font-size: 1.3rem; margin: 40px 0 15px; color: #fff;">Название другой игры</h2> -->
-    <!-- ... -->
 
     <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem;">
         &copy; 2024 FoplikFomk. Сделано на GitHub Pages.
