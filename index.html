@@ -372,20 +372,22 @@
     const secretCode = "BLRarchiveFilesFF";
     let userInput = "";
 
-    // Слушаем нажатия клавиш на странице
+    // Слушаем нажатия клавиш
     document.addEventListener('keydown', function(event) {
-        // Добавляем нажатую клавишу к нашему "буферу" ввода
-        // event.key содержит именно символ (A, b, 1, ! и т.д.)
+        // Выводим в консоль, чтобы проверить, ловятся ли клавиши
+        console.log("Нажата клавиша:", event.key);
+
+        // Добавляем нажатую клавишу
         userInput += event.key;
 
-        // Оставляем в памяти только последние символы (равные длине секретного кода)
+        // Если ввели больше символов, чем нужно — обрезаем
         if (userInput.length > secretCode.length) {
             userInput = userInput.substring(userInput.length - secretCode.length);
         }
 
-        // Проверяем, совпадает ли введенное с секретным кодом
+        // Проверяем совпадение
         if (userInput === secretCode) {
-            // Если да — перекидываем на сайт!
+            console.log("СЕКРЕТНЫЙ КОД ВВЕДЕН! Перенаправление...");
             window.location.href = "https://foplikfomksc.github.io/blr-secret-archive/";
         }
     });
