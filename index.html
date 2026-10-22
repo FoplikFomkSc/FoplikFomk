@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoplikFomk — Проекты</title>
+    <title>FoplikFomk — Projects</title>
     <style>
         /* Цветовая палитра в стиле GitHub Dark */
         :root {
@@ -34,12 +34,31 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
+            position: relative;
         }
+
+        /* Кнопка переключения языка */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #21262d;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 5px 10px;
+            cursor: pointer;
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .lang-switch:hover { background: #30363d; }
 
         /* Шапка */
         .hero {
             text-align: center;
             margin-bottom: 40px;
+            margin-top: 30px;
         }
         h1 { font-size: 2.2rem; color: #fff; margin-bottom: 10px; font-weight: 600; }
         .hero p { color: var(--text-muted); margin-bottom: 20px; }
@@ -172,11 +191,15 @@
 <body>
 
 <div class="container">
+    
+    <!-- Кнопка переключения языка -->
+    <button class="lang-switch" id="langBtn" onclick="toggleLang()">EN</button>
 
     <div class="hero">
         <h1>FoplikFomk</h1>
-        <p>Разработчик, геймер и просто хороший человек.</p>
+        <p data-ru="Разработчик, геймер и просто хороший человек." data-en="Developer, gamer and just a good person.">Разработчик, геймер и просто хороший человек.</p>
         <div class="social-links">
+            <!-- Названия соцсетей можно не переводить -->
             <a href="https://t.me/foplikfomk" target="_blank" class="social-btn">Telegram</a>
             <a href="https://www.youtube.com/@foplikfomk" target="_blank" class="social-btn">YouTube</a>
             <a href="https://x.com/foplikfomk" target="_blank" class="social-btn">X (Twitter)</a>
@@ -185,8 +208,8 @@
     </div>
 
     <div class="section-title">
-        <div>Releases</div>
-        <span>Мои проекты и дневник разработки</span>
+        <div data-ru="Релизы" data-en="Releases">Релизы</div>
+        <span data-ru="Мои проекты и дневник разработки" data-en="My projects and devlog">Мои проекты и дневник разработки</span>
     </div>
 
     <!-- ================= ПРОЕКТ: BALL RICOCHET ================= -->
@@ -199,15 +222,15 @@
             <div class="release-left">
                 <ul class="version-list">
                     <li class="version-item">
-                        <span style="color: var(--text-muted); font-style: italic;">Пока нет релизов</span>
+                        <span style="color: var(--text-muted); font-style: italic;" data-ru="Пока нет релизов" data-en="No releases yet">Пока нет релизов</span>
                     </li>
                 </ul>
             </div>
             <div class="release-right">
                 <div class="changelog">
-                    <div class="changelog-title">Обновления:</div>
+                    <div class="changelog-title" data-ru="Обновления:" data-en="Changelog:">Обновления:</div>
                     <ul>
-                        <li>Здесь будет список изменений для релиза.</li>
+                        <li data-ru="Здесь будет список изменений для релиза." data-en="Release notes will be here.">Здесь будет список изменений для релиза.</li>
                     </ul>
                 </div>
             </div>
@@ -221,15 +244,15 @@
             <div class="release-left">
                 <ul class="version-list">
                     <li class="version-item">
-                        <span style="color: var(--text-muted); font-style: italic;">Пока нет бета-версий</span>
+                        <span style="color: var(--text-muted); font-style: italic;" data-ru="Пока нет бета-версий" data-en="No beta versions yet">Пока нет бета-версий</span>
                     </li>
                 </ul>
             </div>
             <div class="release-right">
                 <div class="changelog">
-                    <div class="changelog-title">Обновления:</div>
+                    <div class="changelog-title" data-ru="Обновления:" data-en="Changelog:">Обновления:</div>
                     <ul>
-                        <li>Здесь будет список изменений для беты.</li>
+                        <li data-ru="Здесь будет список изменений для беты." data-en="Beta notes will be here.">Здесь будет список изменений для беты.</li>
                     </ul>
                 </div>
             </div>
@@ -243,24 +266,22 @@
             <div class="release-left">
                 <ul class="version-list">
                     
-                    <!-- ВАША НОВАЯ ВЕРСИЯ БЕЗ ФАЙЛА -->
                     <li class="version-item">
-                        <!-- Так как файла нет, мы не делаем ссылку, а просто пишем текст -->
                         <span class="version-name no-file">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path></svg>
                             BLR Alpha v0.0.1
                         </span>
-                        <span class="version-date">Сегодня</span>
+                        <span class="version-date" data-ru="Сегодня" data-en="Today">Сегодня</span>
                     </li>
 
                 </ul>
             </div>
             <div class="release-right">
                 <div class="changelog">
-                    <div class="changelog-title">Обновления (v0.0.1):</div>
+                    <div class="changelog-title" data-ru="Обновления (v0.0.1):" data-en="Changelog (v0.0.1):">Обновления (v0.0.1):</div>
                     <ul>
-                        <li>There is a menu and a functional UI.</li>
-                        <li>There is a connection to an online server!</li>
+                        <li data-ru="Есть меню и функциональный интерфейс." data-en="There is a menu and a functional UI.">Есть меню и функциональный интерфейс.</li>
+                        <li data-ru="Есть подключение к онлайн-серверу!" data-en="There is a connection to an online server!">Есть подключение к онлайн-серверу!</li>
                     </ul>
                 </div>
             </div>
@@ -268,10 +289,28 @@
     </div>
 
     <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem;">
-        &copy; 2024 FoplikFomk. Сделано на GitHub Pages.
+        <span data-ru="&copy; 2024 FoplikFomk. Сделано на GitHub Pages." data-en="&copy; 2024 FoplikFomk. Built with GitHub Pages.">&copy; 2024 FoplikFomk. Сделано на GitHub Pages.</span>
     </footer>
 
 </div>
+
+<!-- Скрипт переключения языков -->
+<script>
+    let currentLang = 'ru'; // По умолчанию русский
+
+    function toggleLang() {
+        currentLang = currentLang === 'ru' ? 'en' : 'ru';
+        
+        // Меняем текст на кнопке
+        document.getElementById('langBtn').innerText = currentLang === 'ru' ? 'EN' : 'RU';
+        
+        // Находим все элементы с атрибутом data-ru или data-en и меняем текст
+        const elements = document.querySelectorAll('[data-ru][data-en]');
+        elements.forEach(el => {
+            el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        });
+    }
+</script>
 
 </body>
 </html>
