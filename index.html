@@ -367,6 +367,28 @@
         btnElement.classList.add('active');
     }
 </script>
+<script>
+    // --- СЕКРЕТНЫЙ КОД (EASTER EGG) ---
+    const secretCode = "BLRarchiveFilesFF";
+    let userInput = "";
 
+    // Слушаем нажатия клавиш на странице
+    document.addEventListener('keydown', function(event) {
+        // Добавляем нажатую клавишу к нашему "буферу" ввода
+        // event.key содержит именно символ (A, b, 1, ! и т.д.)
+        userInput += event.key;
+
+        // Оставляем в памяти только последние символы (равные длине секретного кода)
+        if (userInput.length > secretCode.length) {
+            userInput = userInput.substring(userInput.length - secretCode.length);
+        }
+
+        // Проверяем, совпадает ли введенное с секретным кодом
+        if (userInput === secretCode) {
+            // Если да — перекидываем на сайт!
+            window.location.href = "https://foplikfomksc.github.io/blr-secret-archive/";
+        }
+    });
+</script>
 </body>
 </html>
