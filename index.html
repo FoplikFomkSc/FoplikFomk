@@ -368,26 +368,23 @@
     }
 </script>
 <script>
-    // --- СЕКРЕТНЫЙ КОД (EASTER EGG) ---
-    const secretCode = "BLRarchiveFilesFF";
+    // --- СУПЕР-ПРОСТОЙ СЕКРЕТНЫЙ КОД ---
+    let secretCode = "BLRarchiveFilesFF";
     let userInput = "";
 
-    // Слушаем нажатия клавиш
-    document.addEventListener('keydown', function(event) {
-        // Выводим в консоль, чтобы проверить, ловятся ли клавиши
-        console.log("Нажата клавиша:", event.key);
+    // Ловим нажатия
+    window.addEventListener('keydown', function(e) {
+        // Просто добавляем символ
+        userInput += e.key;
 
-        // Добавляем нажатую клавишу
-        userInput += event.key;
-
-        // Если ввели больше символов, чем нужно — обрезаем
+        // Оставляем только последние 16 символов (длина BLRarchiveFilesFF)
         if (userInput.length > secretCode.length) {
-            userInput = userInput.substring(userInput.length - secretCode.length);
+            userInput = userInput.slice(-secretCode.length);
         }
 
-        // Проверяем совпадение
+        // Если совпало
         if (userInput === secretCode) {
-            console.log("СЕКРЕТНЫЙ КОД ВВЕДЕН! Перенаправление...");
+            alert("БИНГО! Код верный, перекидываю..."); // Всплывающее окно для проверки
             window.location.href = "https://foplikfomksc.github.io/blr-secret-archive/";
         }
     });
